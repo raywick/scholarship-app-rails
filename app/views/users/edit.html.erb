@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6 xs-12">
+            <%= form_with(model: current_user, local: true) do |form| %>
+                <% if current_user.avatar.attached? %>
+                    <%= image_tag url_for(current_user.avatar), height: 80 %>
+                <% end %>
+                <div class="form-group">
+                    <%= form.label :avatar, "Foto de perfil"%>
+                    <%= form.file_field :avatar %>
+                </div>
+
+                <div class="action">
+                    <%= form.submit %>
+                </div>
+            <% end %>
+        </div>
+        <div class="col-6 xs-12">
+            <p>
+            <strong>Full Name</strong>
+            <%= current_user.name %>
+            <%= current_user.last_name %>
+            </p>
+
+            <p>
+            <strong>College ID</strong>
+            <%= current_user.college_id %>
+            </p>
+
+            <p>
+            <strong>Birthday:</strong>
+            <%= current_user.birthday %>
+            </p>
+
+            <p>
+            <strong>Address:</strong>
+            <%= current_user.address %>
+            </p>
+
+            <p>
+            <strong>Zip Code:</strong>
+            <%= current_user.zip_code %>
+            </p>
+
+            <p>
+            <strong>Email:</strong>
+            <%= current_user.email %>
+            </p>
+        </div>
+
+        <%= link_to 'Edit My Account Data ', edit_user_registration_path %> | 
+        <%= link_to ' Back', myapplications_path %>
+
+    </div>

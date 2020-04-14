@@ -1,0 +1,29 @@
+<div class="container-fluid h-100">
+    <div class="row h-100">
+        <div class="col-12 p-5 h-50">
+            <h1 class="text-center">Bienvenido al sistema de Solicitud de Becas de la universidad College</h1>
+        </div>
+        <div class="col-6 xs-12 p-4 text-center h-50">
+            <div>
+                <h3>Eres nuevo?</h3>
+            </div>
+            <div>
+                <h5>Registrate aqui</h5>
+            </div>
+            <div>
+                <%= link_to "Registrate", new_user_registration_path, class: "btn btn-dark" %>
+            </div>
+        </div>
+        <div class="col-6 xs-12 p-4 text-center h-50">
+            <div>
+                <h3>Ya tienes una cuenta?</h3>
+            </div>
+            <div>
+                <h5>Revisa el estado de tu solicitud aqui</h5>
+            </div>
+            <div>
+                <%= link_to "Iniciar Sesion", new_user_registration_path, class: "btn btn-light" %>
+            </div>
+        </div>
+    </div>
+</div>

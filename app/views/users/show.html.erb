@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+<% if @user.avatar.attached? %>
+  <%= image_tag url_for(@user.avatar), height: 50 %>
+<% end %>
+<p>
+  <strong>Aplicant ID</strong>
+  <%= @user.id %>
+</p>
+
+<p>
+  <strong>Full Name</strong>
+  <%= @user.name %>
+  <%= @user.last_name %>
+</p>
+
+<p>
+  <strong>College ID</strong>
+  <%= @user.college_id %>
+</p>
+
+<p>
+  <strong>Birthday:</strong>
+  <%= @user.birthday %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @user.address %>
+</p>
+
+<p>
+  <strong>Zip Code:</strong>
+  <%= @user.zip_code %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<%= link_to 'Edit', edit_user_registration_path %> |
+<%= link_to 'Back', users_path %>

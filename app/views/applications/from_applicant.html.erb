@@ -1,0 +1,39 @@
+<div class="container-fluid">
+    <div class="col-12 p-3">
+        <h1>Solicitudes de <%= @user.name %> <%= @user.last_name %></h1>
+
+        <table>
+        <thead>
+            <tr>
+            <th class='p-1'>Estudiante</th>
+            <th class='p-1'>Carrera</th>
+            <th class='p-1'>Beca solicitada</th>
+            <th class='p-1'>Periodo</th>
+            <th class='p-1'>Fecha de aplicacion</th>
+            <th colspan="3"></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% @user.applications.each do |application| %>
+            <tr>
+                <td class='p-1'><%= application.user_id %></td>
+                <td class='p-1'><%= application.career_id %></td>
+                <td class='p-1'><%= application.scholarship_id %></td>
+                <td class='p-1'><%= application.period %></td>
+                <td class='p-1'><%= application.date_of_application %></td>
+                <td class='p-1'><%= link_to 'Mostrar', application %></td>
+                <td class='p-1'><%= link_to 'Editar', edit_application_path(application) %></td>
+                <td class='p-1'><%= link_to 'Eliminar', application, method: :delete, data: { confirm: 'Esta seguro de eliminar esta solicitud?' } %></td>
+            </tr>
+            <% end %>
+        </tbody>
+        </table>
+
+        <br>
+
+        <% unless current_user.admin? || current_user.nil? || current_user.user_role? %>
+        <%= link_to 'Nueva aplicacion', new_application_path %>
+        <% end %>
+    </div>
+</div>

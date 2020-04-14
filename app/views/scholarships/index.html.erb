@@ -1,0 +1,37 @@
+<div class="container-fluid">
+  <div class="col-12 p-2">
+    <p id="notice"><%= notice %></p>
+
+    <h1>Becas</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th class='p-1'>Estatus</th>
+          <th class='p-1'>Detalles</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @scholarships.each do |scholarship| %>
+          <tr>
+            <td class='p-1'><%= scholarship.status %></td>
+            <td class='p-1'><%= scholarship.details %></td>
+            <td class='p-1'><%= link_to 'Ver', scholarship, class: "btn btn-primary text-white" %></td>
+            <% unless current_user.nil? || current_user.user_role? || current_user.test_user_role? %>
+            <td class='p-1'><%= link_to 'Editar', edit_scholarship_path(scholarship), class: "btn btn-warning" %></td>
+            <td class='p-1'><%= link_to 'Eliminar', scholarship, method: :delete, data: { confirm: 'Esta seguro que quiere eliminar este tipo de beca?' }, class: "btn btn-danger" %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+
+    <% unless current_user.nil? || current_user.user_role? || current_user.test_user_role? %>
+    <%= link_to 'Nueva Beca', new_scholarship_path %>
+    <% end %>
+  </div>
+</div>

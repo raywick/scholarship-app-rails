@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Solicitudes de becas</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th class='p-1'>ID de solicitante</th>
+      <th class='p-1'>Nombre Completo</th>
+      <th class='p-1'>Carrera</th>
+      <th class='p-1'>Beca</th>
+      <th class='p-1'>Periodo</th>
+      <th class='p-1'>Fecha de solicitud</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @applications.each do |application| %>
+      <tr>
+        <td class='p-1'><%= application.user_id %></td>
+        <td class='p-1'><%= application.user.name %> <%= application.user.last_name %></td>
+        <td class='p-1'><%= application.career.name %></td>
+        <td class='p-1'><%= application.scholarship.status %></td>
+        <td class='p-1'><%= application.period %></td>
+        <td class='p-1'><%= application.date_of_application %></td>
+        <td class='p-1'><%= link_to 'Ver', application, class: "btn btn-primary" %></td>
+        <td class='p-1'><%= link_to 'Editar', edit_application_path(application), class: "btn btn-warning" %></td>
+        <td class='p-1'><%= link_to 'Eliminar', application, method: :delete, data: { confirm: 'Esta seguro que desea eliminar esta solicitud?' }, class: "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<% unless current_user.admin? %>
+<%= link_to 'Nueva Solicitud', new_application_path %>
+<% end %>

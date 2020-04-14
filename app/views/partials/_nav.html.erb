@@ -1,0 +1,44 @@
+<nav class="nav bg-light p-1">
+    <li class="nav-item">
+        <%= link_to 'Inicio', root_path, class:"nav-link" %>
+    </li>
+    <li class="nav-item">
+        <%= link_to 'Carreras', careers_path, class:"nav-link" %>
+    </li>
+    <li class="nav-item">
+        <%= link_to 'Becas', scholarships_path, class:"nav-link" %>
+    </li>
+    <% if current_user.nil? %>
+    <li class="nav-item">
+        <%= link_to new_user_session_path, class: 'nav-link' do %>Iniciar Sesion<% end %>
+    </li>
+    <li class="nav-item">
+        <%= link_to new_user_registration_path, class: 'nav-link' do %>Registrarse<% end %>
+    </li>
+    <% else %>
+        <% if current_user.admin? or current_user.director? %>
+        <li class="nav-item">
+            <%= link_to 'Aplicaciones', applications_path, class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+            <%= link_to 'Estudiantes', users_path, class:"nav-link" %>
+        </li>
+        <% else %>
+        <li class="nav-item">
+            <%= link_to 'Mis Aplicaciones', myapplications_path, class:"nav-link" %>
+        </li>
+        <% end %>
+        <% if current_user.admin? or current_user.director? %>
+        <li class="nav-item">
+            <%= link_to 'Administrar cuentas', rails_admin_path, class:"nav-link" %>
+        </li>
+        <% else %>
+        <li class="nav-item">
+            <%= link_to 'Mi Informacion', perfil_path, class:"nav-link" %>
+        </li>
+        <% end %>
+        <li class="nav-item">
+            <%= link_to destroy_user_session_path, class:"nav-link", method: :delete do %>Cerrar sesion<% end %>
+        </li>
+    <% end %>
+</nav>

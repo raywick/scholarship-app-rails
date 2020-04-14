@@ -1,0 +1,68 @@
+<p id="notice"><%= notice %></p>
+
+<% if @application.user.avatar.attached? %>
+  <%= image_tag url_for(@application.user.avatar), height: 50 %>
+<% end %>
+
+<p>
+  <strong>Applicant ID:</strong>
+  <%= @application.user_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @application.user.name %>
+  <%= @application.user.last_name %>
+</p>
+
+<p>
+  <strong>College ID:</strong>
+  <%= @application.user.college_id %>
+</p>
+
+<p>
+  <strong>Birthdate:</strong>
+  <%= @application.user.birthday %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @application.user.address %>
+</p>
+
+<p>
+  <strong>Zip Code:</strong>
+  <%= @application.user.zip_code %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @application.user.email %>
+</p>
+
+<p>
+  <strong>Career:</strong>
+  <%= @application.career.name %>
+</p>
+
+<p>
+  <strong>Scholarship:</strong>
+  <%= @application.scholarship.status %>
+</p>
+
+<p>
+  <strong>Period:</strong>
+  <%= @application.period %>
+</p>
+
+<p>
+  <strong>Date of application:</strong>
+  <%= @application.date_of_application %>
+</p>
+
+<%= link_to 'Editar', edit_application_path(@application) %> |
+<% if current_user.director? or current_user.admin? %>
+<%= link_to 'Volver', applications_path %>
+<% else %>
+<%= link_to 'Volver', myapplications_path %>
+<% end %>

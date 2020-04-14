@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <div class="col-12 p-3">
+    <p id="notice"><%= notice %></p>
+
+    <h1>Mis solicitudes</h1>
+
+    <table class="table"> 
+      <thead>
+        <tr>
+          <th class='p-1'>Carrera</th>
+          <th class='p-1'>Beca solicitada</th>
+          <th class='p-1'>Periodo</th>
+          <th class='p-1'>Fecha de aplicacion</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% current_user.applications.each do |application| %>
+          <tr>
+            <td class='p-1'><%= application.career.name %></td>
+            <td class='p-1'><%= application.scholarship.status %></td>
+            <td class='p-1'><%= application.period %></td>
+            <td class='p-1'><%= application.date_of_application %></td>
+            <td class='p-1'><%= link_to 'Ver', application, class: "btn btn-primary text-white" %></td>
+            <td class='p-1'><%= link_to 'Editar', edit_application_path(application), class: "btn btn-warning" %></td>
+            <td class='p-1'><%= link_to 'Cancelar', application, method: :delete, data: { confirm: 'Estas seguro que quieres cancelar esta solicitud?' }, class: "btn btn-danger" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+
+    <% unless current_user.admin? || current_user.director? %>
+    <%= link_to 'Nueva aplicacion', new_application_path %>
+    <% end %>
+  </div>
+</div>
