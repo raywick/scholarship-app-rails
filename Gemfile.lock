@@ -152,10 +152,6 @@ GEM
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.1)
-<<<<<<< HEAD
-=======
-    msgpack (1.3.3)
->>>>>>> 728f060eab2ef5228a5db6055d57f4979e14063f
     msgpack (1.3.3-x64-mingw32)
     nested_form (0.3.2)
     nio4r (2.5.2)
