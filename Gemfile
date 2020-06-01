@@ -34,6 +34,8 @@ gem 'rails_admin', git: 'https://github.com/sferik/rails_admin.git'
 
 gem 'cancancan'
 
+gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails', :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

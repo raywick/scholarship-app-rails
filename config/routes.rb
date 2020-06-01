@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   # USER ROUTES
   # Lets user change profile picture and see their personal information
   get 'perfil', to: 'users#edit'
+  patch 'user/:id', to: 'users#update'
   # Let users see their current applications
   get 'myapplications', to: 'applications#my_applications'
   # Generates the authentication routes

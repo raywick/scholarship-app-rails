@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     def update
         @user = User.update(user_params)
 
-        redirect_back(fallback_location: root_path)
+        redirect_back(fallback_location: perfil_path)
     end
 
     

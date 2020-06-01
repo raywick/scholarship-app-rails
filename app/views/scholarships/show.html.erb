@@ -1,16 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @scholarship.status %>
-</p>
+<div class="container mt-5">
+  <div>
+    <h2 class="pt-5"><%= @scholarship.status %></h2>
+  </div>
 
-<p>
-  <strong>Details:</strong>
-  <%= @scholarship.details %>
-</p>
-
-<% unless current_user.nil? || current_user.user_role? || current_user.test_user_role? %>
-<%= link_to 'Edit', edit_scholarship_path(@scholarship) %> |
-<% end %>
-<%= link_to 'Back', scholarships_path %>
+  <div class="pt-2">
+    <h6><strong>Detalles:</strong></h6>
+    <p>
+      <%= @scholarship.details %>
+    </p>
+  </div>
+  <div class="pt-5">
+    <% unless current_user.nil? || current_user.user_role? || current_user.test_user_role? %>
+    <%= link_to 'Edit', edit_scholarship_path(@scholarship), class: "btn btn-warning text-white" %> |
+    <% end %>
+    <%= link_to 'Back', scholarships_path, class: "btn btn-primary text-white" %>
+  </div>
+</div>

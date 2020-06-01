@@ -1,6 +1,7 @@
 class ApplicationsController < ApplicationController
   before_action :set_application, only: [:show, :edit, :update, :destroy]
-  before_action :test, only: [:index, :from_applicant]
+  before_action :for_admins, only: [:index, :from_applicant]
+  before_action  :for_users , only: [:my_applications]
   # GET /applications
   # GET /applications.json
   def index
@@ -74,11 +75,19 @@ class ApplicationsController < ApplicationController
       @application = Application.find(params[:id])
     end
 
-    def test
-      if current_user.test_user_role? or current_user.director? or current_user.admin?
+    def for_admins
+      if current_user.director? or current_user.admin?
         true
       else
         redirect_back(fallback_location: root_path)
+      end
+    end
+
+    def for_users
+      if current_user.test_user_role? or current_user.user_role?
+        true
+      else
+        redirect_to applications_path
       end
     end
 

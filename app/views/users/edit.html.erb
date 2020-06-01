@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-5 pt-5">
     <div class="row">
         <div class="col-6 xs-12">
             <%= form_with(model: current_user, local: true) do |form| %>
@@ -11,7 +11,11 @@
                 </div>
 
                 <div class="action">
-                    <%= form.submit %>
+                    <% if current_user.avatar.attached? %>
+                        <%= form.submit, class: "btn btn-primary" %>
+                    <% else %>
+                        <%= form.submit, class: "btn btn-primary disabled" %>
+                    <% end %>
                 </div>
             <% end %>
         </div>

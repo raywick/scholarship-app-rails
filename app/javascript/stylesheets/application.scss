@@ -3,8 +3,22 @@
 // Import Toastr
 @import 'toastr';
 
-* {form input[type='number']::-webkit-outer-spin-button,
+* {
+   margin: 0px;
+   padding: 0px;
+   form input[type='number']::-webkit-outer-spin-button,
 form input[type='number']::-webkit-inner-spin-button {
    -webkit-appearance: none;
    margin: 0;
 }}
+
+/*body {
+   min-height: 100vh;
+   max-height: 200vh;
+   width: 100vw;
+}
+
+.container-fluid {
+   height: 100vh;
+   max-height: max-content;
+}*/

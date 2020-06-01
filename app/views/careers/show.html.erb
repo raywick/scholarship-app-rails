@@ -1,16 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @career.name %>
-</p>
+<div class="container mt-5">
+  <div>
+    <h2 class="pt-5"><%= @career.name %></h2>
+  </div>
+  <div>
+    <p class="pt-2">
+      <%= @career.description %>
+    </p>
+  </div>
 
-<p>
-  <strong>Descripcion:</strong>
-  <%= @career.description %>
-</p>
-
-<% unless current_user.nil? || current_user.user_role? || current_user.test_user_role? %>
-<%= link_to 'Editar', edit_career_path(@career) %> | 
-<% end %>
-<%= link_to 'Atras', careers_path %>
+  <div class="pt-5">
+    <% unless current_user.nil? || current_user.user_role? || current_user.test_user_role? %>
+    <%= link_to 'Editar', edit_career_path(@career), class: "btn btn-warning text-white" %> | 
+    <% end %>
+    <%= link_to 'Atras', careers_path, class: "btn btn-primary text-white" %>
+  </div>
+</div>

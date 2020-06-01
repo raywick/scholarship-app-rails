@@ -1,28 +1,28 @@
-<div class="container-fluid h-100">
-    <div class="row h-100">
+<div class="container-fluid" id="welcome-banner">
+    <div class="row h-30">
         <div class="col-12 p-5 h-50">
-            <h1 class="text-center">Bienvenido al sistema de Solicitud de Becas de la universidad College</h1>
+            <h1 class="text-center p-5 text-white">Bienvenido al sistema de Solicitud de Becas de la universidad College</h1>
         </div>
-        <div class="col-6 xs-12 p-4 text-center h-50">
-            <div>
-                <h3>Eres nuevo?</h3>
-            </div>
-            <div>
-                <h5>Registrate aqui</h5>
-            </div>
-            <div>
-                <%= link_to "Registrate", new_user_registration_path, class: "btn btn-dark" %>
+    </div>
+    <div class="row h-70">
+        <div class="col-12 col-md-6 p-4 text-center h-50">
+            <div class="card">
+                <div class="jumbotron">
+                    <h3 class="display-3">Eres nuevo?</h3>
+                    <h5 class="lead">Registrate aqui</h5>
+                    <hr class="my-4">
+                    <p>Unete a miles de estudiantes que recibieron becas por su desempeño brillante y sus ganas de superarse.</p>
+                    <%= link_to "Registrate", new_user_registration_path, class: "btn btn-success text-white" %>
+                </div>
             </div>
         </div>
-        <div class="col-6 xs-12 p-4 text-center h-50">
-            <div>
-                <h3>Ya tienes una cuenta?</h3>
-            </div>
-            <div>
-                <h5>Revisa el estado de tu solicitud aqui</h5>
-            </div>
-            <div>
-                <%= link_to "Iniciar Sesion", new_user_registration_path, class: "btn btn-light" %>
+        <div class="col-12 col-md-6 p-4 text-center h-50">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Ya tienes una cuenta?</h3>
+                    <h5 class="card-text">Revisa el estado de tu solicitud aqui</h5>
+                    <%= link_to "Iniciar Sesion", new_user_registration_path, class: "btn btn-primary text-white" %>
+                </div>
             </div>
         </div>
     </div>
